@@ -1,0 +1,24 @@
+Fri Aug 23 22:02:37 +08 2024: Starting database setup script
+Fri Aug 23 22:02:37 +08 2024: Attempting to drop and recreate database asedb
+DROP DATABASE
+CREATE DATABASE
+Fri Aug 23 22:02:43 +08 2024: Database reset completed successfully
+Fri Aug 23 22:02:43 +08 2024: Creating tables...
+Fri Aug 23 22:02:43 +08 2024: Running SQL file: ./scripts/init_tables.sql
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+Fri Aug 23 22:02:46 +08 2024: SQL file ./scripts/init_tables.sql executed successfully
+Fri Aug 23 22:02:46 +08 2024: Inserting sample data...
+Fri Aug 23 22:02:46 +08 2024: Running SQL file: ./scripts/populate_data.sql
+INSERT 0 3
+INSERT 0 4
+INSERT 0 2
+INSERT 0 4
+UPDATE 1
+UPDATE 1
+UPDATE 1
+UPDATE 1
+Fri Aug 23 22:02:50 +08 2024: SQL file ./scripts/populate_data.sql executed successfully
+Fri Aug 23 22:02:50 +08 2024: Database setup completed.
