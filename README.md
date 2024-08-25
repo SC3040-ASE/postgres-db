@@ -6,6 +6,7 @@
 
 - PostgreSQL installed and running
 - `psql` command-line tool available
+  `export PATH=/Library/PostgreSQL/9.5/bin:$PATH`
 - insert database credentials and connection information into `asedb-config.env`
 
 ## Files

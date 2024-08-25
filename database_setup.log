@@ -1,24 +1,65 @@
-Fri Aug 23 22:02:37 +08 2024: Starting database setup script
-Fri Aug 23 22:02:37 +08 2024: Attempting to drop and recreate database asedb
+Sat Aug 24 23:48:50 +08 2024: Starting database setup script
+Sat Aug 24 23:48:50 +08 2024: Attempting to drop and recreate database asedb
 DROP DATABASE
 CREATE DATABASE
-Fri Aug 23 22:02:43 +08 2024: Database reset completed successfully
-Fri Aug 23 22:02:43 +08 2024: Creating tables...
-Fri Aug 23 22:02:43 +08 2024: Running SQL file: ./scripts/init_tables.sql
+Sat Aug 24 23:49:03 +08 2024: Database reset completed successfully
+Sat Aug 24 23:49:03 +08 2024: Attempting to create pgvector and azure_ai extensions
+CREATE EXTENSION
+CREATE EXTENSION
+ set_setting 
+-------------
+ 
+(1 row)
+
+ set_setting 
+-------------
+ 
+(1 row)
+
+Sat Aug 24 23:49:05 +08 2024: pgvector and azure_ai extensions created successfully
+Sat Aug 24 23:49:05 +08 2024: Creating tables...
+Sat Aug 24 23:49:05 +08 2024: Running SQL file: ./scripts/1_init_tables.sql
 CREATE TABLE
 CREATE TABLE
 CREATE TABLE
 CREATE TABLE
-Fri Aug 23 22:02:46 +08 2024: SQL file ./scripts/init_tables.sql executed successfully
-Fri Aug 23 22:02:46 +08 2024: Inserting sample data...
-Fri Aug 23 22:02:46 +08 2024: Running SQL file: ./scripts/populate_data.sql
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+Sat Aug 24 23:49:09 +08 2024: SQL file ./scripts/1_init_tables.sql executed successfully
+Sat Aug 24 23:49:09 +08 2024: Inserting sample data...
+Sat Aug 24 23:49:09 +08 2024: Running SQL file: ./scripts/2_create_functions.sql
+CREATE FUNCTION
+Sat Aug 24 23:49:11 +08 2024: SQL file ./scripts/2_create_functions.sql executed successfully
+Sat Aug 24 23:49:11 +08 2024: Creating functions...
+Sat Aug 24 23:49:11 +08 2024: Running SQL file: ./scripts/3_create_triggers.sql
+CREATE FUNCTION
+CREATE TRIGGER
+CREATE TRIGGER
+Sat Aug 24 23:49:13 +08 2024: SQL file ./scripts/3_create_triggers.sql executed successfully
+Sat Aug 24 23:49:13 +08 2024: Creating functions...
+Sat Aug 24 23:49:13 +08 2024: Running SQL file: ./scripts/4_populate_data.sql
 INSERT 0 3
-INSERT 0 4
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 3
 INSERT 0 2
-INSERT 0 4
+INSERT 0 3
+INSERT 0 2
+INSERT 0 2
+psql:scripts/4_populate_data.sql:70: ERROR:  insert or update on table "product_order" violates foreign key constraint "product_order_product_id_fkey"
+DETAIL:  Key (product_id)=(4) is not present in table "product".
 UPDATE 1
 UPDATE 1
 UPDATE 1
-UPDATE 1
-Fri Aug 23 22:02:50 +08 2024: SQL file ./scripts/populate_data.sql executed successfully
-Fri Aug 23 22:02:50 +08 2024: Database setup completed.
+UPDATE 0
+Sat Aug 24 23:49:25 +08 2024: SQL file ./scripts/4_populate_data.sql executed successfully
+Sat Aug 24 23:49:25 +08 2024: Database setup completed.
