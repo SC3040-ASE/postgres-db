@@ -19,7 +19,7 @@ BEGIN
 
     -- Generate the embedding using the azure_openai.create_embeddings function
     product_embedding := azure_openai.create_embeddings(
-        'embedding',
+        'ase',
         COALESCE(NEW.product_name, '') || ' ' ||
         COALESCE(NEW.description, '') || ' ' ||
         COALESCE(array_to_string(var_tags, ' '), '') || ' ' ||

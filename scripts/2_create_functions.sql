@@ -19,7 +19,7 @@ RETURNS TABLE (
 DECLARE
     query_embedding VECTOR(1536);
 BEGIN
-    query_embedding := azure_openai.create_embeddings('embedding', searchQuery);
+    query_embedding := azure_openai.create_embeddings('ase', searchQuery);
 
     RETURN QUERY
     SELECT
