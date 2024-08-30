@@ -1,3 +1,4 @@
 
 *.env
 database_setup.log
+.DS_Store

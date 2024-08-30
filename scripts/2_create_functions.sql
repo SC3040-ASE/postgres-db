@@ -4,7 +4,7 @@ CREATE OR REPLACE FUNCTION product_search(
     numResults INT
 )
 RETURNS TABLE (
-    product_id INT,
+    product_id INTEGER,
     product_name VARCHAR(255),
     price DECIMAL(10, 2),
     tags TEXT[],
@@ -26,7 +26,7 @@ BEGIN
         p.id AS product_id,
         p.product_name,
         p.price,
-        COALESCE(array_agg(t.tag_name::TEXT), '{}') AS tags, -- Ensure an empty array is returned instead of NULL
+        COALESCE(array_agg(t.tag_name::TEXT), '{}') AS tags,
         p.condition,
         p.product_image,
         p.total_quantity,
