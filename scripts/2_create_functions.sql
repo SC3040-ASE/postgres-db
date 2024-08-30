@@ -5,6 +5,7 @@ CREATE OR REPLACE FUNCTION product_search(
 )
 RETURNS TABLE (
     product_id INTEGER,
+    owner_id INTEGER,
     product_name VARCHAR(255),
     price DECIMAL(10, 2),
     tags TEXT[],
@@ -24,6 +25,7 @@ BEGIN
     RETURN QUERY
     SELECT
         p.id AS product_id,
+        p.owner_id,
         p.product_name,
         p.price,
         COALESCE(array_agg(t.tag_name::TEXT), '{}') AS tags,
