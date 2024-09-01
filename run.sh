@@ -25,18 +25,6 @@ run_sql_file() {
     fi
 }
 
-echo "$(date): Attempting to drop and recreate database $PGDATABASE"
-PGPASSWORD=$PGPASSWORD psql -h $PGHOST -p $PGPORT -U $PGUSER -d postgres <<EOF
-DROP DATABASE IF EXISTS $PGDATABASE;
-CREATE DATABASE $PGDATABASE;
-EOF
-
-if [ $? -eq 0 ]; then
-    echo "$(date): Database reset completed successfully"
-else
-    echo "$(date): Error resetting database"
-    exit 1
-fi
 
 
 echo "$(date): Attempting to create pgvector and azure_ai extensions"
@@ -65,7 +53,7 @@ run_sql_file ./scripts/2_create_functions.sql
 echo "$(date): Creating functions..."
 run_sql_file ./scripts/3_create_triggers.sql
 
-echo "$(date): Creating functions..."
-run_sql_file ./scripts/4_populate_data.sql
+# echo "$(date): Creating functions..."
+# run_sql_file ./scripts/4_populate_data.sql
 
 echo "$(date): Database setup completed."

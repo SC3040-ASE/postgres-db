@@ -1,5 +1,5 @@
 -- Insert sample users
-INSERT INTO "USER" (username, password, email, is_admin) VALUES
+INSERT INTO _USER (username, password, email, is_admin) VALUES
 ('john_doe', 'hashed_password_1', 'john@example.com', false),
 ('jane_smith', 'hashed_password_2', 'jane@example.com', false),
 ('admin_user', 'admin_password_hashed', 'admin@example.com', true);
@@ -46,7 +46,7 @@ VALUES
 
 
 -- Insert sample orders
-INSERT INTO "ORDER" (buyer_id, seller_id, status) VALUES
+INSERT INTO _ORDER (buyer_id, seller_id, status) VALUES
 (2, 1, 'Completed'),
 (1, 2, 'Processing');
 
