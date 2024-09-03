@@ -9,11 +9,11 @@ RETURNS TABLE (
     product_name VARCHAR(255),
     price DECIMAL(10, 2),
     tags TEXT[],
-    condition VARCHAR(50),
+    condition VARCHAR(255),
     product_image VARCHAR(255),
-    total_quantity INT,
-    current_quantity INT,
-    category VARCHAR(100),
+    total_quantity INTEGER,
+    current_quantity INTEGER,
+    category VARCHAR(255),
     description TEXT,
     score REAL
 ) AS $$
