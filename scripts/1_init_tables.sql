@@ -27,6 +27,7 @@ CREATE TABLE TAG (
     id SERIAL PRIMARY KEY,
     category_id INTEGER NOT NULL,
     tag_name VARCHAR(255) NOT NULL,
+    embedding vector(1536),
     FOREIGN KEY (category_id) REFERENCES CATEGORY (id),
     CONSTRAINT unique_category_tag UNIQUE (category_id, tag_name)
 );
