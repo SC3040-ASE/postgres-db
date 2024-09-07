@@ -40,7 +40,6 @@ CREATE TABLE PRODUCT (
     condition VARCHAR(255) NOT NULL,
     created_on TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_on TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    product_image VARCHAR(255),
     total_quantity INTEGER NOT NULL,
     current_quantity INTEGER NOT NULL,
     category_id INTEGER NOT NULL,
