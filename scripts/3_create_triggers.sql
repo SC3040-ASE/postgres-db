@@ -18,7 +18,6 @@ BEGIN
     product_embedding := azure_openai.create_embeddings(
         'ase',
         COALESCE(NEW.product_name, '') || ' ' ||
-        COALESCE(NEW.description, '') || ' ' ||
         COALESCE(array_to_string(var_tags, ' '), '') || ' ' ||
         COALESCE(var_category_name, '')
     );
