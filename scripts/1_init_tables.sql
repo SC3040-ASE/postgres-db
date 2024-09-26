@@ -62,6 +62,8 @@ CREATE TABLE _ORDER (
     buyer_id INTEGER NOT NULL,
     seller_id INTEGER NOT NULL,
     product_id INTEGER NOT NULL,
+    description TEXT,
+    condition VARCHAR(255),
     ordered_on TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     fulfilled_on TIMESTAMP,
     status VARCHAR(50) NOT NULL,
