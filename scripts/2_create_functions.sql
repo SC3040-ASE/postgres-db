@@ -1,34 +1,23 @@
 CREATE OR REPLACE FUNCTION tag_search(
     param_category_id INTEGER,
-    title TEXT,
-    description TEXT,
-    numResults INT
+    searchQuery TEXT
 )
-RETURNS TABLE (
-    tag_id INTEGER,
-    tag_name VARCHAR(255),
-    tag_category_id INTEGER,
-    score REAL
-) AS $$
+    RETURNS TABLE (
+                      tag_name VARCHAR(255),
+                  ) AS $$
 DECLARE
     query_embedding VECTOR(1536);
-    searchQuery TEXT := title || ' ' || description;
 BEGIN
     query_embedding := azure_openai.create_embeddings('ase', searchQuery);
 
     RETURN QUERY
-    SELECT
-        t.id AS tag_id,
-        t.tag_name,
-        t.category_id AS tag_category_id,
-        (t.embedding <=> query_embedding)::REAL AS score
-    FROM
-        TAG t
-    WHERE
-        t.category_id = param_category_id
-    ORDER BY
-        score ASC
-    LIMIT numResults;
+        SELECT
+            t.tag_name
+        FROM
+            TAG t
+        WHERE
+            t.category_id = param_category_id AND
+            (t.embedding <=> query_embedding)::REAL < 0.25::REAL;
 END;
 $$ LANGUAGE plpgsql;
 
