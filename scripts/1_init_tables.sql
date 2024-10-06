@@ -62,8 +62,6 @@ CREATE TABLE _ORDER (
     buyer_id INTEGER NOT NULL,
     seller_id INTEGER NOT NULL,
     product_id INTEGER NOT NULL,
-    description TEXT,
-    condition VARCHAR(255),
     ordered_on TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     fulfilled_on TIMESTAMP,
     status VARCHAR(50) NOT NULL,
@@ -79,6 +77,9 @@ CREATE TABLE ORDER_REQUEST(
     target_price DECIMAL(10, 2) NOT NULL,
     status VARCHAR(50) NOT NULL,
     requestor_id INTEGER NOT NULL,
+    item_name VARCHAR(255) NOT NULL,
+    condition VARCHAR(50) NOT NULL,
+    description TEXT,
     FOREIGN KEY (category_id) REFERENCES CATEGORY (id),
     FOREIGN KEY (requestor_id) REFERENCES _USER (id)
 );
