@@ -3,7 +3,7 @@ CREATE OR REPLACE FUNCTION tag_search(
     searchQuery TEXT
 )
     RETURNS TABLE (
-                      tag_name VARCHAR(255),
+                      tag_name VARCHAR(255)
                   ) AS $$
 DECLARE
     query_embedding VECTOR(1536);
